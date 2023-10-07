@@ -1,0 +1,298 @@
+
+
+  0%|          | 0/4071 [00:00<?, ?it/s]GPU
+epoch14_model_segment_contrast_1p0.pt epoch14_model_head_segment_contrast_1p0.pt
+Loading model: segment_contrast_1p0, from epoch: 14
+The size of validation data is 4071
+[IOU EVAL] IGNORE:  tensor(0)
+[IOU EVAL] INCLUDE:  tensor([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+        19])
+MinkUNet(
+  (stem): Sequential(
+    (0): MinkowskiConvolution(in=4, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+    (1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): MinkowskiReLU()
+    (3): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+    (4): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (5): MinkowskiReLU()
+  )
+  (stage1): Sequential(
+    (0): BasicConvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential()
+      (relu): MinkowskiReLU()
+    )
+    (2): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=32, out=32, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential()
+      (relu): MinkowskiReLU()
+    )
+  )
+  (stage2): Sequential(
+    (0): BasicConvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=32, out=32, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=32, out=64, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (relu): MinkowskiReLU()
+    )
+    (2): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=64, out=64, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential()
+      (relu): MinkowskiReLU()
+    )
+  )
+  (stage3): Sequential(
+    (0): BasicConvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=64, out=64, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=64, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (relu): MinkowskiReLU()
+    )
+    (2): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential()
+      (relu): MinkowskiReLU()
+    )
+  )
+  (stage4): Sequential(
+    (0): BasicConvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=128, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential(
+        (0): MinkowskiConvolution(in=128, out=256, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (relu): MinkowskiReLU()
+    )
+    (2): ResidualBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+        (3): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+        (4): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (downsample): Sequential()
+      (relu): MinkowskiReLU()
+    )
+  )
+  (up1): ModuleList(
+    (0): BasicDeconvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolutionTranspose(in=256, out=256, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): Sequential(
+      (0): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=384, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential(
+          (0): MinkowskiConvolution(in=384, out=256, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): MinkowskiReLU()
+      )
+      (1): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=256, out=256, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential()
+        (relu): MinkowskiReLU()
+      )
+    )
+  )
+  (up2): ModuleList(
+    (0): BasicDeconvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolutionTranspose(in=256, out=128, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): Sequential(
+      (0): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=192, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential(
+          (0): MinkowskiConvolution(in=192, out=128, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): MinkowskiReLU()
+      )
+      (1): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=128, out=128, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential()
+        (relu): MinkowskiReLU()
+      )
+    )
+  )
+  (up3): ModuleList(
+    (0): BasicDeconvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolutionTranspose(in=128, out=96, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): Sequential(
+      (0): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=128, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=96, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential(
+          (0): MinkowskiConvolution(in=128, out=96, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): MinkowskiReLU()
+      )
+      (1): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=96, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=96, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential()
+        (relu): MinkowskiReLU()
+      )
+    )
+  )
+  (up4): ModuleList(
+    (0): BasicDeconvolutionBlock(
+      (net): Sequential(
+        (0): MinkowskiConvolutionTranspose(in=96, out=96, kernel_size=[2, 2, 2], stride=[2, 2, 2], dilation=[1, 1, 1])
+        (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (2): MinkowskiReLU()
+      )
+    )
+    (1): Sequential(
+      (0): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=128, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=96, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential(
+          (0): MinkowskiConvolution(in=128, out=96, kernel_size=[1, 1, 1], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (relu): MinkowskiReLU()
+      )
+      (1): ResidualBlock(
+        (net): Sequential(
+          (0): MinkowskiConvolution(in=96, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (1): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): MinkowskiReLU()
+          (3): MinkowskiConvolution(in=96, out=96, kernel_size=[3, 3, 3], stride=[1, 1, 1], dilation=[1, 1, 1])
+          (4): MinkowskiBatchNorm(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+        (downsample): Sequential()
+        (relu): MinkowskiReLU()
+      )
+    )
+  )
+  (dropout): Dropout(p=0.3, inplace=True)
+)
+ 
