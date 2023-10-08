@@ -76,7 +76,11 @@ def point_set_to_coord_feats(point_set, labels, resolution, num_points, determin
             np.random.seed(42)
         mapping = np.random.choice(mapping, num_points, replace=False)
 
-    return p_coord[mapping], p_feats[mapping], labels[mapping]
+    if labels.all() == None:
+        return p_coord[mapping], p_feats[mapping]
+    
+    else:
+        return p_coord[mapping], p_feats[mapping], labels[mapping]
 
 def collate_points_to_sparse_tensor(pi_coord, pi_feats, pj_coord, pj_feats):
     # voxelize on a sparse tensor
@@ -167,3 +171,36 @@ class SparseCollation:
         # features across different SparseTensors, i.e. output prediction and target labels
 
         return p_coord, p_feats, p_label
+    
+class SparseCollationTest:
+    def __init__(self, resolution, num_points=80000):
+        self.resolution = resolution
+        self.num_points = num_points
+
+    def __call__(self, list_data):
+        points_set = list(list_data)
+
+        points_set = np.asarray(points_set)
+        
+
+        p_feats = []
+        p_coord = []
+        labels = None
+        for points  in points_set:
+            coord, feats, = point_set_to_coord_feats(points, labels, self.resolution, self.num_points, True)
+            p_feats.append(feats)
+            p_coord.append(coord)
+            
+
+        p_feats = np.asarray(p_feats)
+        p_coord = np.asarray(p_coord)
+        
+
+        # if we directly map coords and feats to SparseTensor it will loose the map over the coordinates
+        # if the mapping between point and voxels are necessary, please use TensorField
+        # as in https://nvidia.github.io/MinkowskiEngine/demo/segmentation.html?highlight=segmentation
+        # we first create TensorFields and from it we create the sparse tensors, so we can map the coordinate
+        # features across different SparseTensors, i.e. output prediction and target labels
+
+        return p_coord, p_feats
+

@@ -2,6 +2,7 @@ import MinkowskiEngine as ME
 import numpy as np
 from data_utils.collations import SparseAugmentedCollation, SparseCollation
 from data_utils.datasets.SemanticKITTIDataLoader import SemanticKITTIDataLoader
+from data_utils.datasets.SemanticSlamanticDataLoader import SemanticSlamanticDataLoader
 from data_utils.datasets.SemanticPOSSDataLoader import SemanticPOSSDataLoader
 from models.minkunet import *
 from models.moco import *
@@ -15,10 +16,12 @@ sparse_models = {
 data_loaders = {
     'SemanticKITTI': SemanticKITTIDataLoader,
     'SemanticPOSS': SemanticPOSSDataLoader,
+    'SemanticSlamantic': SemanticSlamanticDataLoader,
 }
 
 data_class = {
     'SemanticKITTI': 20,
+    'SemanticSlamantic': 20,
     'SemanticPOSS': 14,
 }
 
